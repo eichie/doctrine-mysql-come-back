@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Facile\DoctrineMySQLComeBack\Doctrine\DBAL;
 
 use Doctrine\DBAL\ParameterType;
+use Doctrine\DBAL\Connection as DBALConnection;
 
 /**
  * @internal
@@ -37,7 +38,7 @@ class Statement extends \Doctrine\DBAL\Statement
      * @param $sql
      * @param Connection $conn
      */
-    public function __construct($sql, Connection $conn)
+    public function __construct($sql, DBALConnection $conn)
     {
         // Mysqli executes statement on Statement constructor, so we should retry to reconnect here too
         $attempt = 0;
